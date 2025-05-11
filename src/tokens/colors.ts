@@ -1,18 +1,16 @@
-// src/tokens/colors.ts
-
 export const colors = {
   common: {
     black: '#000',
     white: '#fff',
   },
   primary: {
-    main: '#1976d2', // MUI default blue
+    main: '#1976d2',
     light: '#42a5f5',
     dark: '#1565c0',
     contrastText: '#fff',
   },
   secondary: {
-    main: '#9c27b0', // MUI default purple
+    main: '#9c27b0',
     light: '#ba68c8',
     dark: '#7b1fa2',
     contrastText: '#fff',
@@ -64,10 +62,8 @@ export const colors = {
   },
   background: {
     paper: '#fff',
-    default: '#f5f5f5', // MUI often uses a light grey like grey[100] for default bg
+    default: '#f5f5f5',
   },
-  // Keeping the Netflix red for potential specific use, but it's not part of the core MUI structure
-  netflixRed: '#E50914',
 };
 
 export type ThemeColors = typeof colors;

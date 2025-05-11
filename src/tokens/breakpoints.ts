@@ -1,5 +1,3 @@
-// src/tokens/breakpoints.ts
-
 export const screens = {
   'sm': '600px',
   'md': '900px',

@@ -1,6 +1,3 @@
-// src/tokens/spacing.ts
-
-// Assuming 1rem = 16px, MUI base spacing unit = 8px
 export const spacing = {
   '0': '0',       // 0px
   '1': '0.5rem',  // 8px
