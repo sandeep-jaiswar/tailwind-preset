@@ -1,5 +1,14 @@
 // src/tokens/typography.ts
 
+// Define the type for a single font size entry value, matching Tailwind's expectations
+type TailwindFontSizeValue =
+  | string
+  | [string, string] // For [fontSize, lineHeight]
+  | [string, Partial<{ lineHeight: string; letterSpacing: string; fontWeight: string | number; }>]; // For [fontSize, {config}]
+
+// Define the type for the whole fontSize theme object
+type TailwindFontSizeTheme = Record<string, TailwindFontSizeValue>;
+
 export const fontFamily = {
   sans: [
     'Roboto', // MUI's default font
@@ -21,26 +30,21 @@ export const fontFamily = {
   // mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
 };
 
-export const fontSize = {
-  // MUI-like scale (values often in rem for accessibility)
-  // Based on MUI default type ramp: h1 (96px) to caption (12px)
-  'xs': ['0.75rem', { lineHeight: '1.25rem' }],    // 12px, like caption
-  'sm': ['0.875rem', { lineHeight: '1.375rem' }],  // 14px, like body2
-  'base': ['1rem', { lineHeight: '1.5rem' }],      // 16px, like body1
-  'lg': ['1.125rem', { lineHeight: '1.625rem' }],  // 18px, like h6
-  'xl': ['1.25rem', { lineHeight: '1.75rem' }],   // 20px, like h5
-  '2xl': ['1.5rem', { lineHeight: '1.875rem' }],  // 24px, like h4
-  '3xl': ['1.875rem', { lineHeight: '2.125rem' }],// 30px, like h3
-  '4xl': ['2.25rem', { lineHeight: '2.5rem' }],   // 36px, like h2
-  '5xl': ['3rem', { lineHeight: '3.25rem' }],     // 48px
-  '6xl': ['3.75rem', { lineHeight: '1' }],       // 60px, like h1 (MUI's h1 is 6rem/96px with tighter leading)
-  '7xl': ['4.5rem', { lineHeight: '1' }],         // 72px
-  '8xl': ['6rem', { lineHeight: '1' }],           // 96px
+// Apply the explicit type to your fontSize constant
+export const fontSize: TailwindFontSizeTheme = {
+  'xs': ['0.75rem', { lineHeight: '1.25rem' }],
+  'sm': ['0.875rem', { lineHeight: '1.375rem' }],
+  'base': ['1rem', { lineHeight: '1.5rem' }],
+  'lg': ['1.125rem', { lineHeight: '1.625rem' }],
+  'xl': ['1.25rem', { lineHeight: '1.75rem' }],
+  '2xl': ['1.5rem', { lineHeight: '1.875rem' }],
+  '3xl': ['1.875rem', { lineHeight: '2.125rem' }],
+  '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
+  '5xl': ['3rem', { lineHeight: '3.25rem' }],
+  '6xl': ['3.75rem', { lineHeight: '1' }],
+  '7xl': ['4.5rem', { lineHeight: '1' }],
+  '8xl': ['6rem', { lineHeight: '1' }],
 };
 
-// Font weights can often use Tailwind's defaults (light, normal, medium, semibold, bold)
-// MUI default weights: light (300), regular (400), medium (500), bold (700)
-// export const fontWeight = { ... }
-
 export type ThemeFontFamily = typeof fontFamily;
-export type ThemeFontSize = typeof fontSize;
+export type ThemeFontSize = typeof fontSize; // This will now carry the more precise type
