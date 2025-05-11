@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "type": "module",
   "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
   "publishConfig": {
@@ -31,6 +31,11 @@
       "require": "./dist/index.cjs"
     }
   },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
   "devDependencies": {
     "@changesets/cli": "^2.29.3",
     "@eslint/css": "^0.7.0",
@@ -48,6 +53,7 @@
     "typescript-eslint": "^8.32.0"
   },
   "peerDependencies": {
+    "tailwindcss": "^3.4.0",
     "typescript": "^5"
   }
 }
